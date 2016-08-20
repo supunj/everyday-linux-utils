@@ -13,7 +13,7 @@ do
              
         echo -ne "File->$file_name | Original Size->$original_file_size | "
 
-        avconv -i $file -s hd480 -acodec aac -strict experimental -ac 2 -ar 44100 -ab 192k -vf "drawtext=fontfile='/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf':text='Copyright-Supun Jayathilake(supunj@gmail.com)':x=main_w-text_w:y=main_h-text_h:fontsize=24:fontcolor=white" $destination_path/${file_name%.*}.mp4
+        avconv -i $file -s hd480 -acodec aac -strict experimental -ac 2 -ar 44100 -ab 192k -vf "drawtext=fontfile='/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf':text='Copyright-Supun Jayathilake(supunj@gmail.com)':x=main_w-text_w:y=main_h-text_h:fontsize=16:fontcolor=white" $destination_path/${file_name%.*}.mp4
 
         processed_file_size=$(( $( stat -c '%s' $destination_path/${file_name%.*}.mp4) / 1024 / 1024 ))
         
