@@ -12,8 +12,8 @@ dropbox_remote='dropbox'
 
 # i use the same remote name for the local folders. change if required
 gdrive_path=$base_folder/$gdrive_remote
-onedrive_path=$base_folder/$onedrive
-dropbox_path=$base_folder/$dropbox
+onedrive_path=$base_folder/$onedrive_remote
+dropbox_path=$base_folder/$dropbox_remote
 
 folder_depth=5
 
@@ -36,11 +36,11 @@ do
 
             # upload to cloud storage
             echo -ne "Uploading " $absolute_file_path " to " $storage_service:$cloud_folder/$remote_path
-            rclone copy $absolute_file_path $storage_service:$cloud_folder/$remote_path
+            #rclone copy $absolute_file_path $storage_service:$cloud_folder/$remote_path
             echo " - Done!"
 
             # rename the file
-            mv $absolute_file_path $absolute_file_path.done
+            #mv $absolute_file_path $absolute_file_path.done
 
             # wait for few seconds before resuming
             sleep 3
