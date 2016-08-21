@@ -25,7 +25,7 @@ do
     do
             # Exract file info
             remote_path="$( cut -d '/' -f 2- <<< "$(dirname "$relative_file_path")" )"
-            absolute_file_path=$search_path$relative_file_path
+            absolute_file_path=$search_path/$relative_file_path
 
             # derive the storage based on the folder path
             case $search_path in
