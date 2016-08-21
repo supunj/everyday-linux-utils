@@ -24,7 +24,7 @@ do
     for relative_file_path in `find $search_path -maxdepth $folder_depth -type f -not -name "*.done" -printf '%P\n'`
     do
             # Exract file info
-            remote_path="$( cut -d '/' -f 2- <<< "$(dirname "$relative_file_path")" )"
+            remote_path=$(dirname "$relative_file_path")
             absolute_file_path=$search_path/$relative_file_path
 
             # derive the storage based on the folder path
