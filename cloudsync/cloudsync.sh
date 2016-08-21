@@ -9,16 +9,18 @@ cloud_folder=''
 gdrive_remote='gdrive'
 onedrive_remote='onedrive'
 dropbox_remote='dropbox'
+gdrive_amani_remote='gdrive_amani'
 
 # i use the same remote name for the local folders. change if required
 gdrive_path=$base_folder/$gdrive_remote
 onedrive_path=$base_folder/$onedrive_remote
 dropbox_path=$base_folder/$dropbox_remote
+gdrive_amani_path=$base_folder/$gdrive_amani_remote
 
 folder_depth=5
 
 # loop through paths
-for search_path in $gdrive_path $onedrive_path $dropbox_path
+for search_path in $gdrive_path $onedrive_path $dropbox_path $gdrive_amani_path
 do
     # find in one path at a time in order to get the relative path
     for relative_file_path in `find $search_path -maxdepth $folder_depth -type f -not -name "*.done" -printf '%P\n'`
@@ -32,6 +34,7 @@ do
               $gdrive_path) storage_service=$gdrive_remote ;;
               $onedrive_path) storage_service=$onedrive_remote ;;
               $gdrive_path) storage_service=$dropbox_remote ;;
+              $gdrive_amani_path) storage_service=$gdrive_amani_remote ;;
             esac
 
             # upload to cloud storage
